@@ -10,13 +10,13 @@ public class Product {
 
     public Product(String name, String comment, String position, int availableQuantity, Unit unit, String manufacturer, int expirationDate, String arrivalDate) {
         this.name = name;
-        this.comment = comment;//ne zaduljitelno
-        this.position = position;
-        this.availableQuantity = availableQuantity;
-        this.unit = unit;
-        this.manufacturer = manufacturer;
         this.expirationDate = expirationDate;
         this.arrivalDate = arrivalDate;
+        this.manufacturer = manufacturer;
+        this.unit = unit;
+        this.availableQuantity = availableQuantity;
+        this.position = position;
+        this.comment = comment;
     }
     public String toString(){
         return "Name: "+name+
@@ -27,5 +27,21 @@ public class Product {
                 "\nAvailable Quantity: "+availableQuantity+
                 "\nPosition: "+position+
                 "\nComment: "+comment;
+    }
+
+    public int getExpirationDate() {
+        return expirationDate;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setAvailableQuantity(int availableQuantity) {
+        this.availableQuantity = availableQuantity;
+    }
+
+    public int getAvailableQuantity() {
+        return availableQuantity;
     }
 }
