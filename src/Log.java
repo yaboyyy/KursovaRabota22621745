@@ -1,0 +1,20 @@
+public class Log {
+    private Product product;
+    private Change typeChange;
+    private long date;
+
+    public Log(Product product, Change typeChange, long date) {
+        this.product = product;
+        this.typeChange = typeChange;
+        this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "Product " + product.getName() + " has been " + typeChange + " on " + date;
+    }
+
+    public long getDate() {
+        return date;
+    }
+}

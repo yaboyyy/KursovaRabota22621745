@@ -1,6 +1,6 @@
 public class Product {
     private String name;
-    private int expirationDate;
+    private long expirationDate;
     private String arrivalDate;
     private String manufacturer;
     private Unit unit;
@@ -8,7 +8,7 @@ public class Product {
     private String position;
     private String comment;
 
-    public Product(String name, String comment, String position, int availableQuantity, Unit unit, String manufacturer, int expirationDate, String arrivalDate) {
+    public Product(String name, String comment, String position, int availableQuantity, Unit unit, String manufacturer, long expirationDate, String arrivalDate) {
         this.name = name;
         this.expirationDate = expirationDate;
         this.arrivalDate = arrivalDate;
@@ -29,7 +29,7 @@ public class Product {
                 "\nComment: "+comment;
     }
 
-    public int getExpirationDate() {
+    public long getExpirationDate() {
         return expirationDate;
     }
 
