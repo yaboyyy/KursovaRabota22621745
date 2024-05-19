@@ -1,9 +1,10 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
-public class Warehouse {
+public class Warehouse implements Serializable {
     Scanner scanner = new Scanner(System.in);
     private List<Product>products=new ArrayList<>();
     private List<Log>logList=new ArrayList<>();
@@ -11,7 +12,7 @@ public class Warehouse {
     public void printProducts(){
         int i = 1;
         for(Product product : products){
-            System.out.println(i+":\n"+product.toString());
+            System.out.println(i+".\n"+product.toString());
             i++;
         }
     }
@@ -131,10 +132,29 @@ public class Warehouse {
         }
         for (Product p : products) {
             if (p == cleanableProducts.get(i)){
+
                 p.setAvailableQuantity(0);
+
+                logList.add(new Log(p, Change.Cleaned, currDate));
                 System.out.println(cleanableProducts.toString()+"\nHas been cleared from the warehouse.\n");
                 i++;
             }
         }
+    }
+
+    public List<Log> getLogList() {
+        return logList;
+    }
+
+    public void setLogList(List<Log> logList) {
+        this.logList = logList;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }

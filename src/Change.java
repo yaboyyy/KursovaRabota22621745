@@ -1,3 +1,3 @@
 public enum Change {
-Printed, Added, Removed, Cleaned
+    Added, Removed, Cleaned
 }

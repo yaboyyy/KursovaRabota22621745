@@ -1,4 +1,6 @@
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     private String name;
     private long expirationDate;
     private String arrivalDate;
@@ -27,6 +29,10 @@ public class Product {
                 "\nAvailable Quantity: "+availableQuantity+
                 "\nPosition: "+position+
                 "\nComment: "+comment;
+    }
+
+    public String save(){
+        return name + "\n"+expirationDate + "\n"+arrivalDate + "\n"+manufacturer + "\n"+unit + "\n"+availableQuantity + "\n"+position + "\n"+comment;
     }
 
     public long getExpirationDate() {
