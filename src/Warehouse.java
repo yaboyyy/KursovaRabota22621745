@@ -11,6 +11,9 @@ public class Warehouse implements Serializable {
 
     public void printProducts(){
         int i = 1;
+        if(products.isEmpty()){
+            System.out.println("There are no products.\n");
+        }
         for(Product product : products){
             System.out.println(i+".\n"+product.toString());
             i++;
@@ -109,20 +112,27 @@ public class Warehouse implements Serializable {
         return  "No such products.\n";
     }
 
-    public String printLog(long from, long to){
+    public void printLog(long from, long to){
+        int br = 0;
+        if(logList.isEmpty()){
+            System.out.println("There are no logs.\n");
+        }
         for(Log l : logList) {
             if (l.getDate()>from && l.getDate()<to) {
-                return l.toString() + "\n";
+                System.out.println( l.toString() + "\n");
+                br++;
             }
         }
-        return "No change between these dates.\n";
+        if(br==0){
+            System.out.println( "No change between these dates.\n");;
+        }
     }
 
     public void clear(int daysBeforeExpiration, long currDate){
         int i=0;
         List<Product> cleanableProducts = new ArrayList<>();
         for (Product p : products) {
-            if (currDate==p.getExpirationDate()||currDate-p.getExpirationDate()<=daysBeforeExpiration){
+            if (currDate==p.getExpirationDate()||p.getExpirationDate()-currDate <=daysBeforeExpiration){
                 cleanableProducts.add(p);
             }
         }
@@ -136,7 +146,7 @@ public class Warehouse implements Serializable {
                 p.setAvailableQuantity(0);
 
                 logList.add(new Log(p, Change.Cleaned, currDate));
-                System.out.println(cleanableProducts.toString()+"\nHas been cleared from the warehouse.\n");
+                System.out.println(cleanableProducts.toString()+"Has been cleared from the warehouse.\n");
                 i++;
             }
         }

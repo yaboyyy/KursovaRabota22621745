@@ -28,7 +28,7 @@ public class Product implements Serializable {
                 "\nUnit: "+unit+
                 "\nAvailable Quantity: "+availableQuantity+
                 "\nPosition: "+position+
-                "\nComment: "+comment;
+                "\nComment: "+comment+"\n";
     }
 
     public String save(){
